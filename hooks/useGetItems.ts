@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { fetchItems } from '../lib/items';
+import { fetchItemsOnClient } from '../lib/items';
 import { Item } from '../pages/api/items';
 
 export const useGetItems = (page: number, search?: string) => {
@@ -17,7 +17,7 @@ export const useGetItems = (page: number, search?: string) => {
             loading.current = true;
 
             setError(false);
-            const { data } = await fetchItems(page, search);
+            const { data } = await fetchItemsOnClient(page, search);
 
             setData((prevData) => ({
                 items: [...prevData.items, ...data.items],

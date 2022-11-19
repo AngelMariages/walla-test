@@ -1,11 +1,13 @@
 import ProductList from '../../components/ProductList';
-import { fetchItems } from '../../lib/items';
+import { fetchItems } from '../../pages/api/items';
 
-export default async function Search({
-    searchParams: { query },
-}: {
-    searchParams: { query?: string };
-}) {
+type Props = {
+    searchParams?: {
+        query?: string;
+    };
+};
+
+export default async function Search({ searchParams: { query } = {} }: Props) {
     const { data } = await fetchItems(1, query);
 
     return (

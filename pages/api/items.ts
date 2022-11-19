@@ -29,8 +29,8 @@ const fetchWithPagination = async (page: number, search?: string) => {
 
     const filteredItems = search
         ? items.filter((item) =>
-                item.title.toLowerCase().includes(search.toLowerCase())
-            )
+              item.title.toLowerCase().includes(search.toLowerCase())
+          )
         : items;
 
     const start = (page - 1) * DEFAULT_RESULT_LIMIT;
@@ -40,6 +40,27 @@ const fetchWithPagination = async (page: number, search?: string) => {
         items: filteredItems.slice(start, end),
         hasMore: filteredItems.length > end,
     };
+};
+
+export const fetchItems = async (page: number, search?: string) => {
+    try {
+        const data = await fetchWithPagination(Number(page), search);
+        return {
+            data,
+            error: null,
+        };
+    } catch (error) {
+        if (error instanceof Error) {
+            return {
+                data: { items: [], hasMore: false },
+                error: error.message,
+            };
+        }
+        return {
+            data: { items: [], hasMore: false },
+            error: 'An unknown error occurred',
+        };
+    }
 };
 
 export default async function handler(

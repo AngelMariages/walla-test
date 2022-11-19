@@ -1,6 +1,7 @@
 import WallapopLogo from 'public/images/logo-wallapop.svg';
 import FavIcon from 'public/icons/fav.svg';
 import Search from './Search';
+import Link from 'next/link';
 
 const Logo = () => (
     <div>
@@ -19,8 +20,10 @@ const Header = () => {
     return (
         <header className="flex flex-row justify-between items-center w-full h-24 px-8 bg-gray-100">
             <div className="flex flex-row justify-start items-center h-full">
-                <Logo />
-                <Search/>
+                <Link href="/">
+                    <Logo />
+                </Link>
+                <Search />
             </div>
             <div className="flex flex-row justify-end items-center h-full">
                 <FavButton />
