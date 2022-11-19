@@ -3,10 +3,15 @@ import { useCallback, useRef, useState } from 'react';
 import { useGetItems } from '../hooks/useGetItems';
 import Product from './Product';
 
-const Pagination = ({ initialPage }: { initialPage: number }) => {
+type Props = {
+    initialPage: number;
+    search?: string;
+};
+
+const Pagination: React.FC<Props> = ({ initialPage, search }) => {
     const [page, setPage] = useState(initialPage);
     const observer = useRef<IntersectionObserver>();
-    const { items, hasMore, isLoading } = useGetItems(page);
+    const { items, hasMore, isLoading } = useGetItems(page, search);
 
     const lastItemRef = useCallback(
         (node: HTMLDivElement) => {

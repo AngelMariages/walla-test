@@ -1,22 +1,12 @@
 import WallapopLogo from 'public/images/logo-wallapop.svg';
 import FavIcon from 'public/icons/fav.svg';
+import Search from './Search';
 
 const Logo = () => (
     <div>
         <WallapopLogo alt="logo" />
     </div>
 );
-const SearchBar = () => {
-    return (
-        <div className="ml-8">
-            <input
-                className="rounded-md border border-gray-300 px-2 py-1"
-                type="text"
-                placeholder="Search"
-            />
-        </div>
-    );
-};
 const FavButton = () => {
     return (
         <button className="w-8">
@@ -28,11 +18,11 @@ const FavButton = () => {
 const Header = () => {
     return (
         <header className="flex flex-row justify-between items-center w-full h-24 px-8 bg-gray-100">
-            <div className="flex flex-row justify-start items-center w-1/2 h-full">
+            <div className="flex flex-row justify-start items-center h-full">
                 <Logo />
-                <SearchBar />
+                <Search/>
             </div>
-            <div className="flex flex-row justify-end items-center w-1/2 h-full">
+            <div className="flex flex-row justify-end items-center h-full">
                 <FavButton />
             </div>
         </header>

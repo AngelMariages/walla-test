@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchItems } from '../lib/items';
 import { Item } from '../pages/api/items';
 
-export const useGetItems = (page: number) => {
+export const useGetItems = (page: number, search?: string) => {
     const [data, setData] = useState<{
         items: Item[];
         hasMore: boolean;
@@ -17,7 +17,7 @@ export const useGetItems = (page: number) => {
             loading.current = true;
 
             setError(false);
-            const { data, error } = await fetchItems(page);
+            const { data } = await fetchItems(page, search);
 
             setData((prevData) => ({
                 items: [...prevData.items, ...data.items],
@@ -26,7 +26,7 @@ export const useGetItems = (page: number) => {
 
             loading.current = false;
         })();
-    }, [page]);
+    }, [page, search]);
 
     return {
         isLoading: loading.current,

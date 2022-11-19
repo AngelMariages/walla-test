@@ -22,17 +22,23 @@ export type ApiResult = {
 const DEFAULT_RESULT_LIMIT = 5;
 
 // Simulate API with pagination
-const fetchWithPagination = async (page: number) => {
+const fetchWithPagination = async (page: number, search?: string) => {
     const response = await fetch(API).then((res) => res.json());
 
     const items = response.items as Item[];
+
+    const filteredItems = search
+        ? items.filter((item) =>
+                item.title.toLowerCase().includes(search.toLowerCase())
+            )
+        : items;
 
     const start = (page - 1) * DEFAULT_RESULT_LIMIT;
     const end = start + DEFAULT_RESULT_LIMIT;
 
     return {
-        items: items.slice(start, end),
-        hasMore: items.length > end,
+        items: filteredItems.slice(start, end),
+        hasMore: filteredItems.length > end,
     };
 };
 
@@ -40,10 +46,12 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<ApiResult>
 ) {
-    const { page = 1 } = req.query;
+    const { page = 1, search: rawSearch } = req.query;
+
+    const search = Array.isArray(rawSearch) ? rawSearch[0] : rawSearch;
 
     try {
-        const result = await fetchWithPagination(Number(page));
+        const result = await fetchWithPagination(Number(page), search);
         res.status(200).json({ data: result, error: null });
     } catch (error) {
         if (error instanceof Error) {
