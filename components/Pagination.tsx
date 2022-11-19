@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useGetItems } from '../hooks/useGetItems';
 import Product from './Product';
 
@@ -17,10 +17,6 @@ const Pagination = ({ initialPage }: { initialPage: number }) => {
                 }
             });
             if (node) observer.current.observe(node);
-
-            return () => {
-                if (observer.current) observer.current.disconnect();
-            };
         },
         [hasMore]
     );

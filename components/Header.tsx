@@ -1,8 +1,10 @@
+import WallapopLogo from 'public/images/logo-wallapop.svg';
+import FavIcon from 'public/icons/fav.svg';
+
 const Logo = () => (
-    <img
-        src="https://es.wallapop.com/assets/images/logo-wallapop-home-v2.svg"
-        alt="logo"
-    />
+    <div>
+        <WallapopLogo alt="logo" />
+    </div>
 );
 const SearchBar = () => {
     return (
@@ -18,7 +20,7 @@ const SearchBar = () => {
 const FavButton = () => {
     return (
         <button className="w-8">
-            <img src="/icons/fav.svg" alt="fav" />
+            <FavIcon alt="fav" />
         </button>
     );
 };

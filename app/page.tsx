@@ -7,7 +7,7 @@ export default async function Home({
 }: {
     searchParams: { page?: number };
 }) {
-    const { data, error } = await fetchItems(Number(page));
+    const { data } = await fetchItems(Number(page));
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-400">
