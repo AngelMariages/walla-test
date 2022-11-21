@@ -11,7 +11,7 @@ export default function RootLayout({
             <head />
             <body>
                 <Header />
-                <main className="container min-h-full mx-auto">{children}</main>
+                <main className="container min-h-full min-w-full">{children}</main>
             </body>
         </html>
     );
