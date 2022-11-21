@@ -11,10 +11,7 @@ export default function RootLayout({
             <head />
             <body>
                 <Header />
-                <main className="container mx-auto">{children}</main>
-                <footer>
-                    <p>Footer</p>
-                </footer>
+                <main className="container min-h-full mx-auto">{children}</main>
             </body>
         </html>
     );

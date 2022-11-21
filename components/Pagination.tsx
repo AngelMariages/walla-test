@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useRef, useState } from 'react';
 import { useGetItems } from '../hooks/useGetItems';
+import LoadingIcon from './LoadingIcon';
 import Product from './Product';
 
 type Props = {
@@ -15,13 +16,19 @@ const Pagination: React.FC<Props> = ({ initialPage, search }) => {
 
     const lastItemRef = useCallback(
         (node: HTMLDivElement) => {
-            if (observer.current) observer.current.disconnect();
+            if (observer.current) {
+                observer.current.disconnect();
+            }
+
             observer.current = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting && hasMore) {
                     setPage((prevPage) => prevPage + 1);
                 }
             });
-            if (node) observer.current.observe(node);
+
+            if (node) {
+                observer.current.observe(node);
+            }
         },
         [hasMore]
     );
@@ -38,7 +45,11 @@ const Pagination: React.FC<Props> = ({ initialPage, search }) => {
                 }
                 return <Product key={index} item={item} />;
             })}
-            <div>{isLoading && 'Loading ...'}</div>
+            {isLoading && (
+                <div>
+                    <LoadingIcon />
+                </div>
+            )}
         </>
     );
 };
