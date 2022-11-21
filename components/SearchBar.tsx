@@ -22,11 +22,15 @@ const Search: React.FC = () => {
         e.preventDefault();
 
         if (!search) {
-            router.push('/');
+            router.push('/', {
+                forceOptimisticNavigation: true,
+            });
             return;
         }
 
-        router.push(`/search/${search}`);
+        router.push(`/search/${search}`, {
+            forceOptimisticNavigation: true,
+        });
     };
 
     return (
