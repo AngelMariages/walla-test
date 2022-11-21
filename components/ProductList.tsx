@@ -11,7 +11,7 @@ function asyncComponent<T, R>(fn: (arg: T) => Promise<R>): (arg: T) => R {
 }
 
 export default asyncComponent(async function ProductList({ search }: Props) {
-    const { data } = await fetchItems(1, search);
+    const { data } = await fetchItems(0, search);
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-400">

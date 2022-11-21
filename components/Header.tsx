@@ -5,13 +5,15 @@ import Link from 'next/link';
 
 const FavButton = () => {
     return (
-        <button
-            className={
-                `fixed bottom-8 right-8 z-10 bg-black rounded-full w-14 h-14 text-center` +
-                ` md:flex flex-row justify-end items-center md:h-full`
-            }>
-            <FavIcon className='w-[32px] mx-auto' alt="fav" />
-        </button>
+        <>
+            <button
+                className={
+                    `fixed bottom-8 right-8 z-10 bg-gray-400  border border-gray-500 shadow-xl shadow-gray-700 rounded-full w-14 h-14 text-center justify-end items-center` +
+                    ` md:static md:flex md:flex-row md:h-full md:bg-transparent md:border-none md:shadow-none`
+                }>
+                <FavIcon className="w-[32px] mx-auto" alt="fav" />
+            </button>
+        </>
     );
 };
 
