@@ -9,20 +9,22 @@ export const useGetItems = (page: number, search?: string) => {
     }>({ items: [], hasMore: true });
 
     const loading = useRef(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         (async () => {
             if (loading.current) return;
-            loading.current = true;
 
-            setError(false);
-            const { data } = await fetchItemsOnClient(page, search);
+            loading.current = true;
+            setError(null);
+
+            const { data, error } = await fetchItemsOnClient(page, search);
 
             setData((prevData) => ({
                 items: [...prevData.items, ...data.items],
                 hasMore: data.hasMore,
             }));
+            setError(error);
 
             loading.current = false;
         })();

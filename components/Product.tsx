@@ -19,7 +19,7 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
     ref
 ) {
     return (
-        <div className="m-5 p-5 border bg-slate-50 rounded-2xl" ref={ref}>
+        <div className="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl" ref={ref}>
             <div className="w-full h-80 mb-4 relative overflow-hidden rounded-2xl">
                 <Image
                     src={item.image}

@@ -14,7 +14,7 @@ export default asyncComponent(async function ProductList({ search }: Props) {
     const { data } = await fetchItems(1, search);
 
     return (
-        <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-400">
+        <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300">
             {data.items.map((item, index) => (
                 <Product key={index} item={item} />
             ))}
