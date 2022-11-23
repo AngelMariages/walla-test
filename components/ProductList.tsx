@@ -11,14 +11,16 @@ type Props = {
 };
 
 const ProductList: React.FC<Props> = ({ initialData }) => {
-    const { search, page, setPage } = useContext(FiltersContext);
+    const { search, page, incrementPage } = useContext(FiltersContext);
 
     const [data, setData] = useState(initialData.data);
     const [isLoading, setIsLoading] = useState(false);
 
-    const { itemRef } = useInfinteScroll(
-        useCallback(() => setPage((prev) => prev + 1), [])
-    );
+    const { itemRef } = useInfinteScroll(useCallback(() => {
+        if (!isLoading) {
+            incrementPage();
+        }
+    }, [isLoading]));
 
     useEffect(() => {
         (async () => {

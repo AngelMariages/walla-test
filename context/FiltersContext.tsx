@@ -3,6 +3,8 @@ import {
     Dispatch,
     PropsWithChildren,
     SetStateAction,
+    useCallback,
+    useRef,
     useState,
 } from 'react';
 
@@ -13,7 +15,7 @@ type Sort = {
 
 type FiltersContextType = {
     page: number;
-    setPage: Dispatch<SetStateAction<number>>;
+    incrementPage: () => void;
     search: string;
     setSearch: Dispatch<SetStateAction<string>>;
     sortBy: Sort['sortBy'];
@@ -23,7 +25,7 @@ type FiltersContextType = {
 
 const FiltersContext = createContext<FiltersContextType>({
     page: 1,
-    setPage: (prevState: SetStateAction<number>) => prevState,
+    incrementPage: () => 0,
     search: '',
     setSearch: (prevState: SetStateAction<string>) => prevState,
     sortBy: 'title',
@@ -35,19 +37,25 @@ type Props = {
     overridenSearch?: string;
 };
 
-const FiltersContextProvider: React.FC<PropsWithChildren<Props>> = ({ overridenSearch, children }) => {
+const FiltersContextProvider: React.FC<PropsWithChildren<Props>> = ({
+    overridenSearch,
+    children,
+}) => {
     const [search, setSearch] = useState(overridenSearch || '');
     const [sort, setSort] = useState<Sort>({
         sortBy: 'title',
         sortOrder: 'asc',
     });
     const [page, setPage] = useState(1);
+    const incrementPage = useCallback(() => {
+        setPage((prev) => prev + 1);
+    }, []);
 
     return (
         <FiltersContext.Provider
             value={{
                 page,
-                setPage,
+                incrementPage,
                 search,
                 setSearch: (value) => {
                     setPage(1);
