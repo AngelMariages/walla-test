@@ -6,6 +6,8 @@ type Props = {
     };
 };
 
+export const revalidate = 10;
+
 export default async function Search({ params: { query } }: Props) {
     return <ProductList search={query} />;
 }

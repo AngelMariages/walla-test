@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchItemsOnClient } from '../lib/items';
 import { Item } from '../pages/api/items';
 
@@ -8,14 +8,14 @@ export const useGetItems = (page: number, search?: string) => {
         hasMore: boolean;
     }>({ items: [], hasMore: true });
 
-    const loading = useRef(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         (async () => {
-            if (loading.current) return;
+            if (isLoading) return;
 
-            loading.current = true;
+            setIsLoading(true);
             setError(null);
 
             const { data, error } = await fetchItemsOnClient(page, search);
@@ -26,12 +26,13 @@ export const useGetItems = (page: number, search?: string) => {
             }));
             setError(error);
 
-            loading.current = false;
+            setIsLoading(false);
         })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, search]);
 
     return {
-        isLoading: loading.current,
+        isLoading,
         error,
         hasMore: data.hasMore,
         items: data.items,

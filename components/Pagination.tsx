@@ -16,6 +16,8 @@ const Pagination: React.FC<Props> = ({ initialPage, search }) => {
 
     const lastItemRef = useCallback(
         (node: HTMLDivElement) => {
+            if (isLoading) return;
+
             if (observer.current) {
                 observer.current.disconnect();
             }
@@ -30,15 +32,15 @@ const Pagination: React.FC<Props> = ({ initialPage, search }) => {
                 observer.current.observe(node);
             }
         },
-        [hasMore]
+        [hasMore, isLoading]
     );
 
     return (
         <>
             {items.map((item, index) => {
-                // If it's the penultimate item,
+                // If it's the last item,
                 // set the ref to the lastItemRef to start fetching more items
-                if (items.length === index + 2) {
+                if (items.length - 1 === index) {
                     return (
                         <Product key={index} item={item} ref={lastItemRef} />
                     );

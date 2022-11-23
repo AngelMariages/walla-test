@@ -19,7 +19,7 @@ const FavButton = () => {
 
 const Header = () => {
     return (
-        <header className="sticky top-0 z-10 justify-between items-center w-full h-20 sm:h-24 px-6 sm:px-8 bg-gray-100">
+        <header className="flex sticky top-0 z-10 justify-between items-center w-full h-20 sm:h-24 px-6 sm:px-8 bg-gray-100">
             <div className="flex flex-row justify-start items-center h-full">
                 <Link href="/" className="w-[104px]">
                     <WallapopLogo className="w-[104px]" alt="logo" />
