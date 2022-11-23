@@ -1,36 +1,34 @@
-'use client';
-
-import { useState } from 'react';
+// import { useState } from 'react';
 import SearchIcon from 'public/icons/search.svg';
-import { usePathname, useRouter } from 'next/navigation';
+import { useContext } from 'react';
+import { FiltersContext } from '../context/FiltersContext';
+// import { usePathname } from 'next/navigation';
 
-const getSearchFromPathname = (pathname: string | null) => {
-    if (!pathname) {
-        return '';
-    }
+// const getSearchFromPathname = (pathname: string | null) => {
+//     if (!pathname) {
+//         return '';
+//     }
 
-    const match = pathname.match(/\/search\/(.*)/);
-    return match ? match[1] : '';
-};
+//     const match = pathname.match(/\/search\/(.*)/);
+//     return match ? match[1] : '';
+// };
 
 const Search: React.FC = () => {
-    const router = useRouter();
-    const pathName = usePathname();
-    const [search, setSearch] = useState(getSearchFromPathname(pathName));
+    const { search, setSearch } = useContext(FiltersContext);
+    // const pathName = usePathname();
+    // const [search, setSearch] = useState(getSearchFromPathname(pathName));
 
     const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!search) {
-            router.push('/', {
-                forceOptimisticNavigation: true,
-            });
-            return;
-        }
+        // if (!search) {
+        //     router.push('/', {
+        //         forceOptimisticNavigation: true,
+        //     });
+        //     return;
+        // }
 
-        router.push(`/search/${search}`, {
-            forceOptimisticNavigation: true,
-        });
+        // router.push(`/search/${search}`);
     };
 
     return (

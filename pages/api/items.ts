@@ -28,9 +28,16 @@ const fetchWithPagination = async (page: number, search?: string) => {
     const items = response.items as Item[];
 
     const filteredItems = search
-        ? items.filter((item) =>
-              item.title.toLowerCase().includes(search.toLowerCase())
-          )
+        ? items.filter((item) => {
+              return (
+                  item.title.toLowerCase().includes(search.toLowerCase()) ||
+                  item.description
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                  item.email.toLowerCase().includes(search.toLowerCase()) ||
+                  item.price.toString().includes(search.toLowerCase())
+              );
+          })
         : items;
 
     const start = (page - 1) * DEFAULT_RESULT_LIMIT;
@@ -45,6 +52,7 @@ const fetchWithPagination = async (page: number, search?: string) => {
 export const fetchItems = async (page: number, search?: string) => {
     try {
         const data = await fetchWithPagination(Number(page), search);
+
         return {
             data,
             error: null,

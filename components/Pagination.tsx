@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useGetItems } from '../hooks/useGetItems';
 import LoadingIcon from './LoadingIcon';
 import Product from './Product';
@@ -12,7 +12,7 @@ type Props = {
 const Pagination: React.FC<Props> = ({ initialPage, search }) => {
     const [page, setPage] = useState(initialPage);
     const observer = useRef<IntersectionObserver>();
-    const { items, hasMore, isLoading } = useGetItems(page, search);
+    const { hasMore, isLoading } = useGetItems(page, search);
 
     const lastItemRef = useCallback(
         (node: HTMLDivElement) => {
