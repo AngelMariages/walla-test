@@ -30,12 +30,15 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
 
             setData((prev) => ({
                 ...data,
-                items: page === 1 ? [...data.items] : [...prev.items, ...data.items],
+                items:
+                    page === 1
+                        ? [...data.items]
+                        : [...prev.items, ...data.items],
             }));
 
             setIsLoading(false);
         })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search, page]);
 
     return (
@@ -53,7 +56,6 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
                     <LoadingIcon />
                 </div>
             ) : null}
-            {/* {data.hasMore && <Pagination initialPage={2} search={search} setData={setData} />} */}
         </div>
     );
 };
