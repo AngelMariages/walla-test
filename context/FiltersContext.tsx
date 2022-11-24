@@ -4,11 +4,10 @@ import {
     PropsWithChildren,
     SetStateAction,
     useCallback,
-    useRef,
     useState,
 } from 'react';
 
-type Sort = {
+export type Sort = {
     sortBy: 'price' | 'title' | 'description' | 'email';
     sortOrder: 'asc' | 'desc';
 };
@@ -18,8 +17,7 @@ type FiltersContextType = {
     incrementPage: () => void;
     search: string;
     setSearch: Dispatch<SetStateAction<string>>;
-    sortBy: Sort['sortBy'];
-    sortDirection: Sort['sortOrder'];
+    sort: Sort;
     setSort: Dispatch<SetStateAction<Sort>>;
 };
 
@@ -28,8 +26,10 @@ const FiltersContext = createContext<FiltersContextType>({
     incrementPage: () => 0,
     search: '',
     setSearch: (prevState: SetStateAction<string>) => prevState,
-    sortBy: 'title',
-    sortDirection: 'asc',
+    sort: {
+        sortBy: 'title',
+        sortOrder: 'asc',
+    },
     setSort: (prevState: SetStateAction<Sort>) => prevState,
 });
 
@@ -61,9 +61,11 @@ const FiltersContextProvider: React.FC<PropsWithChildren<Props>> = ({
                     setPage(1);
                     setSearch(value);
                 },
-                sortBy: sort.sortBy,
-                sortDirection: sort.sortOrder,
-                setSort,
+                sort,
+                setSort: (value) => {
+                    setPage(1);
+                    setSort(value);
+                },
             }}>
             {children}
         </FiltersContext.Provider>

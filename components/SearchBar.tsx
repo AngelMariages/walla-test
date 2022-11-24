@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import SearchIcon from 'public/icons/search.svg';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FiltersContext } from '../context/FiltersContext';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
@@ -25,15 +25,17 @@ const debounce = <T extends Function>(func: T, wait: number) => {
 
 const Search: React.FC = () => {
     const router = useRouter();
-    const { search, setSearch } = useContext(FiltersContext);
-    const [searchValue, setSearchValue] = useState(search);
+    const { setSearch } = useContext(FiltersContext);
     const pathName = usePathname();
+    const searchRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         const searchFromPath = getSearchFromPathname(pathName);
         if (searchFromPath) {
             setSearch(searchFromPath);
-            setSearchValue(searchFromPath);
+            if (searchRef.current) {
+                searchRef.current.value = searchFromPath;
+            }
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -41,12 +43,12 @@ const Search: React.FC = () => {
     const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!searchValue) {
+        if (!searchRef.current?.value) {
             router.push('/');
             return;
         }
 
-        router.push(`/search/${searchValue}`, undefined, { shallow: true });
+        router.push(`/search/${searchRef.current.value}`, undefined, { shallow: true });
     };
 
     const debouncedSetSearch = useMemo(() => debounce(setSearch, 500), []);
@@ -55,12 +57,11 @@ const Search: React.FC = () => {
         <form onSubmit={handleSearch}>
             <div className="ml-6 md:ml-8 flex gap-4 md:gap-2">
                 <input
+                    ref={searchRef}
                     className="rounded-md border border-gray-300 px-2 py-1"
                     type="text"
                     placeholder="Search"
-                    value={searchValue}
                     onChange={(e) => {
-                        setSearchValue(e.target.value);
                         debouncedSetSearch(e.target.value)
                     }}
                 />

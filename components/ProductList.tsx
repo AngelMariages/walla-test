@@ -11,7 +11,7 @@ type Props = {
 };
 
 const ProductList: React.FC<Props> = ({ initialData }) => {
-    const { search, page, incrementPage } = useContext(FiltersContext);
+    const { search, page, sort, incrementPage } = useContext(FiltersContext);
 
     const [data, setData] = useState(initialData.data);
     const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,7 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
 
             setIsLoading(true);
 
-            const { data } = await fetchItemsOnClient(page, search);
+            const { data } = await fetchItemsOnClient(page, search, sort);
 
             setData((prev) => ({
                 ...data,
@@ -44,10 +44,10 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
             setIsLoading(false);
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [search, page]);
+    }, [search, page, sort]);
 
     return (
-        <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300">
+        <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
             {data.items.length === 0 ? (
                 <div className="text-center text-2xl font-bold">
                     No items found

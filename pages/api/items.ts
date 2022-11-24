@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { Sort } from '../../context/FiltersContext';
 
 const API =
     'https://frontend-tech-test-data.s3-eu-west-1.amazonaws.com/items.json';
@@ -22,7 +23,11 @@ export type ApiResult = {
 const DEFAULT_RESULT_LIMIT = 5;
 
 // Simulate API with pagination
-const fetchWithPagination = async (page: number, search?: string) => {
+const fetchWithPagination = async (
+    page: number,
+    search?: string,
+    sort: Sort = { sortBy: 'title', sortOrder: 'asc' }
+) => {
     const response = await fetch(API).then((res) => res.json());
 
     const items = response.items as Item[];
@@ -40,18 +45,33 @@ const fetchWithPagination = async (page: number, search?: string) => {
           })
         : items;
 
+    const sortedItems = filteredItems.sort((a, b) => {
+        const aItem = `${a[sort.sortBy]}`.toLowerCase();
+        const bItem = `${b[sort.sortBy]}`.toLowerCase();
+
+        if (sort.sortOrder === 'asc') {
+            return aItem > bItem ? 1 : -1;
+        } else {
+            return aItem < bItem ? 1 : -1;
+        }
+    });
+
     const start = (page - 1) * DEFAULT_RESULT_LIMIT;
     const end = start + DEFAULT_RESULT_LIMIT;
 
     return {
-        items: filteredItems.slice(start, end),
-        hasMore: filteredItems.length > end,
+        items: sortedItems.slice(start, end),
+        hasMore: sortedItems.length > end,
     };
 };
 
-export const fetchItems = async (page: number, search?: string) => {
+export const fetchItems = async (
+    page: number,
+    search?: string,
+    sort?: Sort
+) => {
     try {
-        const data = await fetchWithPagination(Number(page), search);
+        const data = await fetchWithPagination(Number(page), search, sort);
 
         return {
             data,
@@ -75,13 +95,15 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<ApiResult>
 ) {
-    const { page = 1, search: rawSearch } = req.query;
+    const { page = 1, search: rawSearch, sortBy, sortOrder } = req.query;
 
     const search = Array.isArray(rawSearch) ? rawSearch[0] : rawSearch;
 
     try {
-        const result = await fetchWithPagination(Number(page), search);
-        res.status(200).json({ data: result, error: null });
+        res.status(200).json(await fetchItems(Number(page), search, {
+            sortBy: sortBy as string,
+            sortOrder: sortOrder as string,
+        }));
     } catch (error) {
         if (error instanceof Error) {
             res.status(500).json({

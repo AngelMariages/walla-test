@@ -19,7 +19,7 @@ export default function Index({
     initialData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     return (
-        <main className="container min-h-full min-w-full">
+        <main className="container min-h-full min-w-full bg-gray-300">
             <ProductList initialData={initialData} />
         </main>
     );
