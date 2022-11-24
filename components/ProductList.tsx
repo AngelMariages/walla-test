@@ -16,11 +16,14 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
     const [data, setData] = useState(initialData.data);
     const [isLoading, setIsLoading] = useState(false);
 
-    const { itemRef } = useInfinteScroll(useCallback(() => {
-        if (!isLoading) {
-            incrementPage();
-        }
-    }, [isLoading]));
+    const { itemRef } = useInfinteScroll(
+        useCallback(() => {
+            if (!isLoading) {
+                incrementPage();
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [isLoading])
+    );
 
     useEffect(() => {
         (async () => {
