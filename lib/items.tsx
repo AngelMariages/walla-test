@@ -1,4 +1,4 @@
-import { Sort } from '../context/FiltersContext';
+import { Sort } from '../constants/sortBy';
 import { ApiResult } from '../pages/api/items';
 
 export const fetchItemsOnClient = async (
