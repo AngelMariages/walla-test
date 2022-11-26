@@ -6,11 +6,7 @@ import {
     useCallback,
     useState,
 } from 'react';
-
-export type Sort = {
-    sortBy: 'price' | 'title' | 'description' | 'email';
-    sortOrder: 'asc' | 'desc';
-};
+import { Sort } from '../constants/sortBy';
 
 type FiltersContextType = {
     page: number;
@@ -18,7 +14,7 @@ type FiltersContextType = {
     search: string;
     setSearch: Dispatch<SetStateAction<string>>;
     sort: Sort;
-    setSort: Dispatch<SetStateAction<Sort>>;
+    setSort: (newSort: Sort['sortBy']) => void;
 };
 
 const FiltersContext = createContext<FiltersContextType>({
@@ -30,7 +26,7 @@ const FiltersContext = createContext<FiltersContextType>({
         sortBy: 'title',
         sortOrder: 'asc',
     },
-    setSort: (prevState: SetStateAction<Sort>) => prevState,
+    setSort: () => false,
 });
 
 type Props = {
@@ -51,6 +47,17 @@ const FiltersContextProvider: React.FC<PropsWithChildren<Props>> = ({
         setPage((prev) => prev + 1);
     }, []);
 
+    const getSortOrder = useCallback(
+        (newSort: Sort['sortBy']) => {
+            if (newSort === sort.sortBy) {
+                return sort.sortOrder === 'asc' ? 'desc' : 'asc';
+            }
+
+            return 'asc';
+        },
+        [sort.sortBy, sort.sortOrder]
+    );
+
     return (
         <FiltersContext.Provider
             value={{
@@ -64,7 +71,12 @@ const FiltersContextProvider: React.FC<PropsWithChildren<Props>> = ({
                 sort,
                 setSort: (value) => {
                     setPage(1);
-                    setSort(value);
+                    const sortOrder = getSortOrder(value);
+
+                    setSort({
+                        sortBy: value,
+                        sortOrder,
+                    });
                 },
             }}>
             {children}

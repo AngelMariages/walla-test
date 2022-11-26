@@ -46,6 +46,12 @@ const fetchWithPagination = async (
         : items;
 
     const sortedItems = filteredItems.sort((a, b) => {
+        if (sort.sortBy === 'price') {
+            return sort.sortOrder === 'asc'
+                ? a.price - b.price
+                : b.price - a.price;
+        }
+
         const aItem = `${a[sort.sortBy]}`.toLowerCase();
         const bItem = `${b[sort.sortBy]}`.toLowerCase();
 
@@ -101,8 +107,8 @@ export default async function handler(
 
     try {
         res.status(200).json(await fetchItems(Number(page), search, {
-            sortBy: sortBy as string,
-            sortOrder: sortOrder as string,
+            sortBy: sortBy as Sort['sortBy'],
+            sortOrder: sortOrder as Sort['sortOrder'],
         }));
     } catch (error) {
         if (error instanceof Error) {

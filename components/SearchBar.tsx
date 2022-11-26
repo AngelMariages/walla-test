@@ -1,6 +1,5 @@
-// import { useState } from 'react';
 import SearchIcon from 'public/icons/search.svg';
-import { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef } from 'react';
 import { FiltersContext } from '../context/FiltersContext';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
