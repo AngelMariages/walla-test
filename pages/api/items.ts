@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Sort } from '../../context/FiltersContext';
+import { Sort } from '../../constants/sortBy';
 
 const API =
     'https://frontend-tech-test-data.s3-eu-west-1.amazonaws.com/items.json';

@@ -50,7 +50,7 @@ const Search: React.FC = () => {
         router.push(`/search/${searchRef.current.value}`, undefined, { shallow: true });
     };
 
-    const debouncedSetSearch = useMemo(() => debounce(setSearch, 500), []);
+    const debouncedSetSearch = useMemo(() => debounce(setSearch, 500), [setSearch]);
 
     return (
         <form onSubmit={handleSearch}>
