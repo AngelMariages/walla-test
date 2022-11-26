@@ -6,7 +6,7 @@ import {
     useCallback,
     useState,
 } from 'react';
-import { Sort } from '../constants/sortBy';
+import { Sort } from 'constants/sortBy';
 
 type FiltersContextType = {
     page: number;

@@ -16,7 +16,7 @@ const FavoritesModal: React.FC<Props> = ({ visible, onClose, favorites }) => {
                 className="fixed inset-0 bg-black bg-opacity-50"
                 onClick={onClose}
             />
-            <div className="z-20 bg-white rounded-lg p-4 max-h-[calc(100vh_-_2rem)] overflow-y-auto">pages/index.tsx
+            <div className="z-20 bg-white rounded-lg p-4 max-w-[30rem]">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-4xl font-bold">Favorites</h2>
                     <button
@@ -27,7 +27,7 @@ const FavoritesModal: React.FC<Props> = ({ visible, onClose, favorites }) => {
                     </button>
                 </div>
 
-                <div className="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem]">
+                <div className="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)]  overflow-y-auto">
                     {favorites.length === 0 ? (
                         <div className="text-center text-2xl font-bold self-center">
                             No items found

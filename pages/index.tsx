@@ -1,10 +1,10 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useContext } from 'react';
-import FavoritesModal from '../components/FavoritesModal';
-import ProductList from '../components/ProductList';
-import SortByBar from '../components/SortByBar';
-import { FavoritesContext } from '../context/FavoritesContext';
-import { ApiResult, fetchItems } from './api/items';
+import FavoritesModal from 'components/FavoritesModal';
+import ProductList from 'components/ProductList';
+import SortByBar from 'components/SortByBar';
+import { FavoritesContext } from 'context/FavoritesContext';
+import { ApiResult, fetchItems } from 'pages/api/items';
 
 type Props = {
     initialData: ApiResult;

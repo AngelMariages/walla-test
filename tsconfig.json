@@ -23,11 +23,7 @@
                 "name": "next"
             }
         ],
-        "paths": {
-            "public" :[
-                "./public"
-            ]
-        }
+        "baseUrl": ".",
     },
     "include": [
         "next-env.d.ts",

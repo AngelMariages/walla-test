@@ -3,8 +3,8 @@ import FavIcon from 'public/icons/fav.svg';
 import Search from './SearchBar';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { FiltersContext } from '../context/FiltersContext';
-import { FavoritesContext } from '../context/FavoritesContext';
+import { FiltersContext } from 'context/FiltersContext';
+import { FavoritesContext } from 'context/FavoritesContext';
 
 const FavButton = ({ onClick }: { onClick: () => void }) => {
     return (

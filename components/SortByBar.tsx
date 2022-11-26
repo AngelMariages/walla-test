@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { Sort, sortBys } from '../constants/sortBy';
-import { FiltersContext } from '../context/FiltersContext';
+import { Sort, sortBys } from 'constants/sortBy';
+import { FiltersContext } from 'context/FiltersContext';
 import UpArrow from 'public/icons/arrow-up.svg';
 import DownArrow from 'public/icons/arrow-down.svg';
 

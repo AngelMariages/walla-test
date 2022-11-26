@@ -1,5 +1,5 @@
-import { Sort } from '../constants/sortBy';
-import { ApiResult } from '../pages/api/items';
+import { Sort } from 'constants/sortBy';
+import { ApiResult } from 'pages/api/items';
 
 export const fetchItemsOnClient = async (
     page = 1,

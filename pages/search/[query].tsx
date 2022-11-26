@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import ProductList from '../../components/ProductList';
-import { FiltersContextProvider } from '../../context/FiltersContext';
-import { ApiResult, fetchItems } from '../api/items';
+import ProductList from 'components/ProductList';
+import { FiltersContextProvider } from 'context/FiltersContext';
+import { ApiResult, fetchItems } from 'pages/api/items';
 
 type Props = {
     initialData: ApiResult;
