@@ -1,9 +1,12 @@
 import Image from 'next/image';
-import { forwardRef } from 'react';
+import { forwardRef, useContext, useState } from 'react';
+import FavIcon from 'public/icons/fav.svg';
 import { Item } from '../pages/api/items';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 type Props = {
     item: Item;
+    selected?: boolean;
 };
 
 const formatPrice = (price: number) => {
@@ -15,11 +18,15 @@ const formatPrice = (price: number) => {
 };
 
 export default forwardRef<HTMLDivElement, Props>(function Product(
-    { item },
+    { item, selected = false },
     ref
 ) {
+    const { addFavorite, removeFavorite } = useContext(FavoritesContext);
+
     return (
-        <div className="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl" ref={ref}>
+        <div
+            className="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl"
+            ref={ref}>
             <div className="w-full h-80 mb-4 relative overflow-hidden rounded-2xl">
                 <Image
                     src={item.image}
@@ -29,6 +36,18 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
                     style={{
                         objectFit: 'cover',
                     }}
+                />
+                <FavIcon
+                    onClick={() => {
+                        if (selected) {
+                            removeFavorite(item);
+                        } else {
+                            addFavorite(item);
+                        }
+                    }}
+                    className={`bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors ${
+                        selected ? 'fill-red-500' : 'fill-transparent'
+                    }`}
                 />
             </div>
             <p className="text-lg font-bold">{item.title}</p>

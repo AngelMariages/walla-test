@@ -1,6 +1,9 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { useContext } from 'react';
+import FavoritesModal from '../components/FavoritesModal';
 import ProductList from '../components/ProductList';
-import { FiltersContextProvider } from '../context/FiltersContext';
+import SortByBar from '../components/SortByBar';
+import { FavoritesContext } from '../context/FavoritesContext';
 import { ApiResult, fetchItems } from './api/items';
 
 type Props = {
@@ -18,9 +21,20 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 export default function Index({
     initialData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    const { favorites, favoritesVisible, toggleFavorites } =
+        useContext(FavoritesContext);
+
     return (
-        <main className="container min-h-full min-w-full bg-gray-300">
-            <ProductList initialData={initialData} />
-        </main>
+        <>
+            <FavoritesModal
+                visible={favoritesVisible}
+                onClose={toggleFavorites}
+                favorites={favorites}
+            />
+            <main className="min-w-full overflow-auto h-full max-h-[calc(100vh_-_4rem)] md:max-h-[calc(100vh_-_6rem)]">
+                <SortByBar />
+                <ProductList initialData={initialData} />
+            </main>
+        </>
     );
 }
