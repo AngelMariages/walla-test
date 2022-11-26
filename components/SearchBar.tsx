@@ -54,7 +54,7 @@ const Search: React.FC = () => {
 
     return (
         <form onSubmit={handleSearch}>
-            <div className="ml-6 md:ml-8 flex gap-4 md:gap-2">
+            <div className="ml-4 md:ml-8 flex gap-2 md:gap-4">
                 <input
                     ref={searchRef}
                     className="rounded-md border border-gray-300 px-2 py-1"
@@ -64,7 +64,7 @@ const Search: React.FC = () => {
                         debouncedSetSearch(e.target.value)
                     }}
                 />
-                <button type="submit">
+                <button type="submit" className='ml-2'>
                     <SearchIcon alt="search" />
                 </button>
             </div>
