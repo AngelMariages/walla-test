@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoritesModal should render correctly 1`] = `
+<div>
+  <div
+    class="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+  >
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50"
+    />
+    <div
+      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <h2
+          class="text-4xl font-bold"
+        >
+          Favorites
+        </h2>
+        <button
+          aria-label="Close"
+          class="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
+          data-test-id="close-fav-button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+      >
+        <div
+          class="text-center text-2xl font-bold self-center"
+        >
+          No items found
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FavoritesModal should render favorites passed 1`] = `
+<div>
+  <div
+    class="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+  >
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50"
+    />
+    <div
+      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <h2
+          class="text-4xl font-bold"
+        >
+          Favorites
+        </h2>
+        <button
+          aria-label="Close"
+          class="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
+          data-test-id="close-fav-button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+      >
+        <div
+          class="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl"
+        >
+          <div
+            class="w-full h-80 mb-4 relative overflow-hidden rounded-2xl"
+          >
+            <img
+              alt="Test"
+              class="md:hover:scale-125 transition-transform duration-500 ease-out"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              sizes="100vw"
+              src="/_next/image?url=https%3A%2F%2Ftest.com&w=3840&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Ftest.com&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ftest.com&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ftest.com&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ftest.com&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ftest.com&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ftest.com&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ftest.com&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ftest.com&w=3840&q=75 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+            <svg-url
+              classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors fill-red-500"
+            />
+          </div>
+          <p
+            class="text-lg font-bold"
+          >
+            Test
+          </p>
+          <p
+            class="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1"
+          >
+            100 €
+          </p>
+          <p>
+            Test
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

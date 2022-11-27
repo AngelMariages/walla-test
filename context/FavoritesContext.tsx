@@ -1,7 +1,7 @@
 import { Item } from 'constants/item';
 import { createContext, PropsWithChildren, useCallback, useState } from 'react';
 
-type FavoritesContextType = {
+export type FavoritesContextType = {
     favoritesVisible: boolean;
     toggleFavorites: () => void;
     favorites: Item[];

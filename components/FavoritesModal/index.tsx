@@ -1,5 +1,5 @@
 import { Item } from 'constants/item';
-import Product from './Product';
+import Product from '../Product';
 
 type Props = {
     visible: boolean;
@@ -22,6 +22,7 @@ const FavoritesModal: React.FC<Props> = ({ visible, onClose, favorites }) => {
                     <button
                         className="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
                         onClick={onClose}
+                        data-test-id="close-fav-button"
                         aria-label="Close">
                         X
                     </button>

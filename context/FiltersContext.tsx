@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { Sort } from 'constants/sortBy';
 
-type FiltersContextType = {
+export type FiltersContextType = {
     page: number;
     incrementPage: () => void;
     search: string;
