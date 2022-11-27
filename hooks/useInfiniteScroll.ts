@@ -3,25 +3,28 @@ import { useCallback, useRef } from 'react';
 const useInfinteScroll = (callback: () => void) => {
     const observer = useRef<IntersectionObserver>();
 
-    const itemRef = useCallback((node: HTMLDivElement) => {
-        if (observer.current) {
-            observer.current.disconnect();
-        }
-
-        observer.current = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                callback && callback();
+    const itemRef = useCallback(
+        (node: HTMLDivElement) => {
+            if (observer.current) {
+                observer.current.disconnect();
             }
-        });
 
-        if (node) {
-            observer.current.observe(node);
-        }
-    }, [callback]);
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    callback && callback();
+                }
+            });
 
-	return {
-		itemRef,
-	}
+            if (node) {
+                observer.current.observe(node);
+            }
+        },
+        [callback]
+    );
+
+    return {
+        itemRef,
+    };
 };
 
 export default useInfinteScroll;

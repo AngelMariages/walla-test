@@ -1,4 +1,4 @@
-import { Item } from '../pages/api/items';
+import { Item } from 'constants/item';
 import Product from './Product';
 
 type Props = {

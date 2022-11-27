@@ -1,5 +1,5 @@
+import { Item } from 'constants/item';
 import { createContext, PropsWithChildren, useCallback, useState } from 'react';
-import { Item } from 'pages/api/items';
 
 type FavoritesContextType = {
     favoritesVisible: boolean;

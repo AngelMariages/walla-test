@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Sort } from 'constants/sortBy';
-import { fetchItemsOnClient } from 'lib/items';
-import { ApiResult, Item } from 'pages/api/items';
+import { fetchItemsOnClient } from 'lib/fetchItemsOnClient';
+import { ApiResult } from 'pages/api/items';
+import { Item } from 'constants/item';
 
 const useFetchProducts = (
     initialData: ApiResult,

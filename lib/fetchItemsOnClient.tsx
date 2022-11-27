@@ -4,7 +4,7 @@ import { ApiResult } from 'pages/api/items';
 export const fetchItemsOnClient = async (
     page = 1,
     search?: string,
-    sort?: Sort,
+    sort?: Sort
 ): Promise<ApiResult> => {
     const params = new URLSearchParams();
 
@@ -17,7 +17,7 @@ export const fetchItemsOnClient = async (
         params.append('sortOrder', sort.sortOrder);
     }
 
-    return await fetch(
-        `/api/items?${params.toString()}`,
-    ).then((res) => res.json());
+    return await fetch(`/api/items?${params.toString()}`).then((res) =>
+        res.json()
+    );
 };

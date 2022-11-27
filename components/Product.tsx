@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { forwardRef, useContext } from 'react';
 import FavIcon from 'public/icons/fav.svg';
-import { Item } from 'pages/api/items';
 import { FavoritesContext } from 'context/FavoritesContext';
+import { Item } from 'constants/item';
 
 type Props = {
     item: Item;
