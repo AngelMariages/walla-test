@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortByBar should render correctly 1`] = `
+<div>
+  <div
+    class="flex flex-row py-4 px-4 justify-center"
+  >
+    <div
+      class="flex flex-row pl-4 gap-4 text-white"
+    >
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-title-asc"
+      >
+        Title
+        <svg-url
+          classname="ml-2 w-4 h-4"
+        />
+      </button>
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-description-asc"
+      >
+        Description
+      </button>
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-price-asc"
+      >
+        Price
+      </button>
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-email-asc"
+      >
+        Email
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SortByBar should render correctly with asc 1`] = `
+<div>
+  <div
+    class="flex flex-row py-4 px-4 justify-center"
+  >
+    <div
+      class="flex flex-row pl-4 gap-4 text-white"
+    >
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-title-asc"
+      >
+        Title
+        <svg-url
+          classname="ml-2 w-4 h-4"
+        />
+      </button>
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-description-asc"
+      >
+        Description
+      </button>
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-price-asc"
+      >
+        Price
+      </button>
+      <button
+        class="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
+        data-testid="sort-by-email-asc"
+      >
+        Email
+      </button>
+    </div>
+  </div>
+</div>
+`;

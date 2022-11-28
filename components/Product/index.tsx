@@ -38,6 +38,7 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
                     }}
                 />
                 <FavIcon
+                    data-testid="favicon"
                     onClick={() => {
                         if (selected) {
                             removeFavorite(item);
@@ -51,7 +52,9 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
                 />
             </div>
             <p className="text-lg font-bold">{item.title}</p>
-            <p className="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1">
+            <p
+                data-testid="price"
+                className="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1">
                 {formatPrice(item.price)}
             </p>
             <p>{item.description}</p>

@@ -1,23 +1,24 @@
 import WallapopLogo from 'public/images/logo-wallapop.svg';
 import FavIcon from 'public/icons/fav.svg';
-import Search from './SearchBar';
+import SearchBar from 'components/SearchBar';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { FiltersContext } from 'context/FiltersContext';
 import { FavoritesContext } from 'context/FavoritesContext';
 
-const FavButton = ({ onClick }: { onClick: () => void }) => {
+const FavButton: React.FC<{
+    onClick: () => void;
+}> = ({ onClick, ...props }) => {
     return (
-        <>
-            <button
-                onClick={onClick}
-                className={
-                    `fixed bottom-8 right-8 z-10 bg-gray-400 rounded-full ring-5 shadow-xl shadow-gray-700 w-14 h-14 text-center justify-end items-center` +
-                    ` md:static md:flex md:flex-row md:h-full md:bg-transparent md:border-none md:shadow-none`
-                }>
-                <FavIcon className="w-[32px] fill-red-500 mx-auto" alt="fav" />
-            </button>
-        </>
+        <button
+            onClick={onClick}
+            className={
+                `fixed bottom-8 right-8 z-10 bg-gray-400 rounded-full ring-5 shadow-xl shadow-gray-700 w-14 h-14 text-center justify-end items-center` +
+                ` md:static md:flex md:flex-row md:h-full md:bg-transparent md:border-none md:shadow-none`
+            }
+            {...props}>
+            <FavIcon className="w-[32px] fill-red-500 mx-auto" alt="fav" />
+        </button>
     );
 };
 
@@ -31,12 +32,13 @@ const Header = () => {
                 <Link
                     href="/"
                     className="w-[104px]"
+                    data-testid="logo"
                     onClick={() => setSearch('')}>
                     <WallapopLogo className="w-[104px]" alt="logo" />
                 </Link>
-                <Search />
+                <SearchBar />
             </div>
-            <FavButton onClick={toggleFavorites} />
+            <FavButton data-testid="favbutton" onClick={toggleFavorites} />
         </header>
     );
 };

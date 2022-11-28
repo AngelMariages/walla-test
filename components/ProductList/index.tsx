@@ -4,11 +4,11 @@ import { FiltersContext } from 'context/FiltersContext';
 import useFetchProducts from 'hooks/useFetchProducts';
 import useInfinteScroll from 'hooks/useInfiniteScroll';
 import { ApiResult } from 'pages/api/items';
-import LoadingIcon from './LoadingIcon';
-import Product from './Product';
+import LoadingIcon from 'components/LoadingIcon';
+import Product from 'components/Product';
 
 type Props = {
-    initialData: ApiResult;
+    initialData?: ApiResult;
 };
 
 const ProductList: React.FC<Props> = ({ initialData }) => {

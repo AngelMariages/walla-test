@@ -29,11 +29,10 @@ const SortByBar = () => {
             <div className="flex flex-row pl-4 gap-4 text-white">
                 {sortBys.map((sortBy) => (
                     <button
+                        data-testid={`sort-by-${sortBy}-${sort.sortOrder}`}
                         key={sortBy}
                         className="px-3 md:px-4 rounded-lg bg-[#12C1AC] flex flex-row items-center"
-                        onClick={() => {
-                            setSort(sortBy);
-                        }}>
+                        onClick={() => setSort(sortBy)}>
                         {capitalizeFirstLetter(sortBy)}
                         {sort.sortBy === sortBy && (
                             <SortArrow

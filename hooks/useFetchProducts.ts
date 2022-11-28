@@ -5,14 +5,16 @@ import { ApiResult } from 'pages/api/items';
 import { Item } from 'constants/item';
 
 const useFetchProducts = (
-    initialData: ApiResult,
+    initialData: ApiResult | undefined,
     page: number,
     sort: Sort,
     search?: string
 ) => {
     const [isLoading, setIsLoading] = useState(false);
     const [hasMore, setHasMore] = useState(false);
-    const [products, setProducts] = useState<Item[]>(initialData.data.items);
+    const [products, setProducts] = useState<Item[]>(
+        initialData?.data.items || []
+    );
 
     useEffect(() => {
         (async () => {

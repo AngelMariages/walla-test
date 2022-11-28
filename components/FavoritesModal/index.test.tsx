@@ -1,16 +1,37 @@
-import { renderWithContext } from '../../__test__/utils';
 import FavoritesModal from '.';
+import { getByTestId, getByText, render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 describe('FavoritesModal', () => {
     it('should render correctly', () => {
-        const { container } = renderWithContext(
+        const { container } = render(
             <FavoritesModal visible={true} onClose={jest.fn()} favorites={[]} />
         );
         expect(container).toMatchSnapshot();
     });
 
+    it('should call onClose if close btn clicked', async () => {
+        const closeFn = jest.fn();
+        const { container } = render(
+            <FavoritesModal visible={true} onClose={closeFn} favorites={[]} />
+        );
+        expect(container).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
+
+        expect(container.querySelector('h2')?.innerHTML).toBe('Favorites');
+        const closeModal = getByTestId(container, 'close-fav-button');
+
+        expect(closeFn).not.toHaveBeenCalled();
+
+        await act(() => {
+            closeModal.click();
+        });
+
+        expect(closeFn).toBeCalledTimes(1);
+    });
+
     it('should not render if visible is false', () => {
-        const { container } = renderWithContext(
+        const { container } = render(
             <FavoritesModal
                 visible={false}
                 onClose={jest.fn()}
@@ -26,11 +47,11 @@ describe('FavoritesModal', () => {
                 title: 'Test',
                 price: 100,
                 image: 'https://test.com',
-                description: 'Test',
+                description: 'Test description',
                 email: 'test@test.com',
             },
         ];
-        const { container } = renderWithContext(
+        const { container } = render(
             <FavoritesModal
                 visible={true}
                 onClose={jest.fn()}
@@ -40,5 +61,11 @@ describe('FavoritesModal', () => {
         expect(container).toMatchSnapshot();
 
         expect(container.querySelector('h2')?.innerHTML).toBe('Favorites');
+
+
+
+        expect(getByText(container, 'Test')).toBeTruthy();
+        expect(getByText(container, '100 €')).toBeTruthy();
+        expect(getByText(container, 'Test description')).toBeTruthy();
     });
 });

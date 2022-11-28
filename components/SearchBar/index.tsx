@@ -22,7 +22,7 @@ const debounce = <T extends Function>(func: T, wait: number) => {
     }) as unknown as T;
 };
 
-const Search: React.FC = () => {
+const SearchBar: React.FC = () => {
     const router = useRouter();
     const { setSearch } = useContext(FiltersContext);
     const pathName = usePathname();
@@ -36,8 +36,8 @@ const Search: React.FC = () => {
                 searchRef.current.value = searchFromPath;
             }
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -47,24 +47,30 @@ const Search: React.FC = () => {
             return;
         }
 
-        router.push(`/search/${searchRef.current.value}`, undefined, { shallow: true });
+        router.push(`/search/${searchRef.current.value}`, undefined, {
+            shallow: true,
+        });
     };
 
-    const debouncedSetSearch = useMemo(() => debounce(setSearch, 500), [setSearch]);
+    const debouncedSetSearch = useMemo(
+        () => debounce(setSearch, 500),
+        [setSearch]
+    );
 
     return (
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSearch} data-testid="search-form">
             <div className="ml-4 md:ml-8 flex gap-2 md:gap-4">
                 <input
+                    data-testid="search-input"
                     ref={searchRef}
                     className="rounded-md border border-gray-300 px-2 py-1"
                     type="text"
                     placeholder="Search"
                     onChange={(e) => {
-                        debouncedSetSearch(e.target.value)
+                        debouncedSetSearch(e.target.value);
                     }}
                 />
-                <button type="submit" className='ml-2'>
+                <button type="submit" className="ml-2">
                     <SearchIcon alt="search" />
                 </button>
             </div>
@@ -72,4 +78,4 @@ const Search: React.FC = () => {
     );
 };
 
-export default Search;
+export default SearchBar;

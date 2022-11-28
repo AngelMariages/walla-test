@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`FavoritesModal should call onClose if close btn clicked 1`] = `
+<div>
+  <div
+    class="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+  >
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50"
+    />
+    <div
+      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <h2
+          class="text-4xl font-bold"
+        >
+          Favorites
+        </h2>
+        <button
+          aria-label="Close"
+          class="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
+          data-testid="close-fav-button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+      >
+        <div
+          class="text-center text-2xl font-bold self-center"
+        >
+          No items found
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FavoritesModal should call onClose if close btn clicked 2`] = `
+<div>
+  <div
+    class="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+  >
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50"
+    />
+    <div
+      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <h2
+          class="text-4xl font-bold"
+        >
+          Favorites
+        </h2>
+        <button
+          aria-label="Close"
+          class="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
+          data-testid="close-fav-button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+      >
+        <div
+          class="text-center text-2xl font-bold self-center"
+        >
+          No items found
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`FavoritesModal should render correctly 1`] = `
 <div>
   <div
@@ -22,7 +104,7 @@ exports[`FavoritesModal should render correctly 1`] = `
         <button
           aria-label="Close"
           class="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
-          data-test-id="close-fav-button"
+          data-testid="close-fav-button"
         >
           X
         </button>
@@ -63,7 +145,7 @@ exports[`FavoritesModal should render favorites passed 1`] = `
         <button
           aria-label="Close"
           class="text-xl font-bold ring-2 ring-black rounded-full w-8 h-8 flex items-center justify-center"
-          data-test-id="close-fav-button"
+          data-testid="close-fav-button"
         >
           X
         </button>
@@ -90,6 +172,7 @@ exports[`FavoritesModal should render favorites passed 1`] = `
             />
             <svg-url
               classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors fill-red-500"
+              data-testid="favicon"
             />
           </div>
           <p
@@ -99,11 +182,12 @@ exports[`FavoritesModal should render favorites passed 1`] = `
           </p>
           <p
             class="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1"
+            data-testid="price"
           >
             100 €
           </p>
           <p>
-            Test
+            Test description
           </p>
         </div>
       </div>

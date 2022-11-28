@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList should render correctly empty list 1`] = `
+<div>
+  <div
+    class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+  >
+    <div
+      class="text-center text-2xl font-bold"
+    >
+      No items found
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductList should render correctly with products 1`] = `
+<div>
+  <div
+    class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+  >
+    <div
+      item="[object Object]"
+    />
+    <div
+      item="[object Object]"
+    />
+  </div>
+</div>
+`;
+
+exports[`ProductList should render loading icon if hasMore or isLoading 1`] = `
+<div>
+  <div
+    class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+  >
+    <div
+      class="text-center text-2xl font-bold"
+    >
+      No items found
+    </div>
+    <div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductList should render loading icon if hasMore or isLoading 2`] = `
+<div>
+  <div
+    class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+  >
+    <div
+      class="text-center text-2xl font-bold"
+    >
+      No items found
+    </div>
+    <div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
