@@ -1,6 +1,5 @@
 import FavoritesModal from '.';
-import { getByTestId, getByText, render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, getByTestId, getByText, render } from '@testing-library/react';
 
 describe('FavoritesModal', () => {
     it('should render correctly', () => {

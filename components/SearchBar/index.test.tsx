@@ -1,5 +1,4 @@
-import { fireEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { fireEvent, act } from '@testing-library/react';
 import { renderWithContext } from '__test__/utils';
 import SearchBar from '.';
 

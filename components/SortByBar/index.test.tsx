@@ -1,5 +1,4 @@
-import { fireEvent, getByTestId } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { fireEvent, getByTestId, act } from '@testing-library/react';
 import { renderWithContext } from '__test__/utils';
 import SortByBar from '.';
 
