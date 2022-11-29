@@ -16,10 +16,10 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
     const { isFavorite } = useContext(FavoritesContext);
 
     const { isLoading, products, hasMore } = useFetchProducts(
-        initialData,
         page,
         sort,
-        search
+        search,
+        initialData,
     );
 
     const { itemRef } = useInfinteScroll(

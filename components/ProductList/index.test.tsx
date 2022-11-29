@@ -41,10 +41,10 @@ describe('ProductList', () => {
         expect(container).toMatchSnapshot();
         expect(useFetchProducts).toHaveBeenCalledTimes(1);
         expect(useFetchProducts).toHaveBeenCalledWith(
-            undefined,
             1,
             { sortBy: 'title', sortOrder: 'asc' },
-            ''
+            '',
+            undefined
         );
     });
 
