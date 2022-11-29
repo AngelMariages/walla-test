@@ -10,6 +10,7 @@ const customJestConfig = {
 	// setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 	moduleDirectories: ['node_modules', '<rootDir>/'],
 	testEnvironment: 'jest-environment-jsdom',
+	testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/', '<rootDir>/e2e/'],
 };
 
 const jestConfig = async () => {

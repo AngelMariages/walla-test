@@ -4,6 +4,7 @@ exports[`ProductList should render correctly empty list 1`] = `
 <div>
   <div
     class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+    data-testid="products-list"
   >
     <div
       class="text-center text-2xl font-bold"
@@ -18,11 +19,14 @@ exports[`ProductList should render correctly with products 1`] = `
 <div>
   <div
     class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+    data-testid="products-list"
   >
     <div
+      data-testid="product-0"
       item="[object Object]"
     />
     <div
+      data-testid="product-1"
       item="[object Object]"
     />
   </div>
@@ -33,6 +37,7 @@ exports[`ProductList should render loading icon if hasMore or isLoading 1`] = `
 <div>
   <div
     class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+    data-testid="products-list"
   >
     <div
       class="text-center text-2xl font-bold"
@@ -50,6 +55,7 @@ exports[`ProductList should render loading icon if hasMore or isLoading 2`] = `
 <div>
   <div
     class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300"
+    data-testid="products-list"
   >
     <div
       class="text-center text-2xl font-bold"

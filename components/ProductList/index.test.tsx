@@ -76,12 +76,14 @@ describe('ProductList', () => {
         expect(container).toMatchSnapshot();
 
         expect(mockProductComponent).toHaveBeenCalledTimes(2);
-        expect(mockProductComponent).toHaveBeenCalledWith({
-            item: item,
-        });
-        expect(mockProductComponent).toHaveBeenCalledWith({
-            item: item2,
-        });
+        expect(mockProductComponent).toHaveBeenCalledWith(
+            expect.objectContaining({ item })
+        );
+        expect(mockProductComponent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                item: item2,
+            })
+        );
     });
 
     it('should render loading icon if hasMore or isLoading', () => {

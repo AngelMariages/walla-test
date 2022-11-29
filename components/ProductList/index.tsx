@@ -19,7 +19,7 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
         page,
         sort,
         search,
-        initialData,
+        initialData
     );
 
     const { itemRef } = useInfinteScroll(
@@ -32,14 +32,21 @@ const ProductList: React.FC<Props> = ({ initialData }) => {
     );
 
     return (
-        <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300">
+        <div
+            data-testid="products-list"
+            className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 bg-gray-300">
             {products.length === 0 ? (
                 <div className="text-center text-2xl font-bold">
                     No items found
                 </div>
             ) : null}
             {products.map((item, index) => (
-                <Product key={index} item={item} selected={isFavorite(item)} />
+                <Product
+                    key={index}
+                    data-testid={`product-${index}`}
+                    item={item}
+                    selected={isFavorite(item)}
+                />
             ))}
             {hasMore || isLoading ? (
                 <div ref={itemRef}>

@@ -18,7 +18,7 @@ const formatPrice = (price: number) => {
 };
 
 export default forwardRef<HTMLDivElement, Props>(function Product(
-    { item, selected = false },
+    { item, selected = false, ...rest },
     ref
 ) {
     const { addFavorite, removeFavorite } = useContext(FavoritesContext);
@@ -26,7 +26,8 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
     return (
         <div
             className="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl"
-            ref={ref}>
+            ref={ref}
+            {...rest}>
             <div className="w-full h-80 mb-4 relative overflow-hidden rounded-2xl">
                 <Image
                     src={item.image}
