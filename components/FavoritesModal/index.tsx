@@ -28,14 +28,14 @@ const FavoritesModal: React.FC<Props> = ({ visible, onClose, favorites }) => {
                     </button>
                 </div>
 
-                <div className="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)]  overflow-y-auto">
+                <div className="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)]  overflow-y-auto">
                     {favorites.length === 0 ? (
                         <div className="text-center text-2xl font-bold self-center">
                             No items found
                         </div>
                     ) : null}
                     {favorites.map((item, index) => (
-                        <Product key={index} item={item} selected />
+                        <Product key={index} item={item} selected minimised />
                     ))}
                 </div>
             </div>

@@ -10,12 +10,12 @@ exports[`Product should format price correctly 1`] = `
     >
       <img
         alt="title"
-        class="md:hover:scale-125 transition-transform duration-500 ease-out"
+        class="md:hover:scale-110 transition-transform duration-500 ease-out"
         src="image.jpg"
         style="object-fit: cover;"
       />
       <svg-url
-        classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors fill-transparent"
+        classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-in-out transition-colors fill-transparent"
         data-testid="favicon"
       />
     </div>
@@ -47,12 +47,12 @@ exports[`Product should render correctly 1`] = `
     >
       <img
         alt="title"
-        class="md:hover:scale-125 transition-transform duration-500 ease-out"
+        class="md:hover:scale-110 transition-transform duration-500 ease-out"
         src="image.jpg"
         style="object-fit: cover;"
       />
       <svg-url
-        classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors fill-transparent"
+        classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-in-out transition-colors fill-transparent"
         data-testid="favicon"
       />
     </div>
@@ -84,12 +84,12 @@ exports[`Product should render correctly with selected 1`] = `
     >
       <img
         alt="title"
-        class="md:hover:scale-125 transition-transform duration-500 ease-out"
+        class="md:hover:scale-110 transition-transform duration-500 ease-out"
         src="image.jpg"
         style="object-fit: cover;"
       />
       <svg-url
-        classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors fill-red-500"
+        classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-in-out transition-colors fill-red-500"
         data-testid="favicon"
       />
     </div>

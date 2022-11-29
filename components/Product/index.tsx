@@ -7,6 +7,7 @@ import { Item } from 'constants/item';
 type Props = {
     item: Item;
     selected?: boolean;
+    minimised?: boolean;
 };
 
 const formatPrice = (price: number) => {
@@ -18,7 +19,7 @@ const formatPrice = (price: number) => {
 };
 
 export default forwardRef<HTMLDivElement, Props>(function Product(
-    { item, selected = false, ...rest },
+    { item, selected = false, minimised = false, ...rest },
     ref
 ) {
     const { addFavorite, removeFavorite } = useContext(FavoritesContext);
@@ -32,7 +33,7 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
                 <Image
                     src={item.image}
                     alt={item.title}
-                    className="md:hover:scale-125 transition-transform duration-500 ease-out"
+                    className="md:hover:scale-110 transition-transform duration-500 ease-out"
                     fill
                     style={{
                         objectFit: 'cover',
@@ -47,18 +48,22 @@ export default forwardRef<HTMLDivElement, Props>(function Product(
                             addFavorite(item);
                         }
                     }}
-                    className={`bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors ${
+                    className={`bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-in-out transition-colors ${
                         selected ? 'fill-red-500' : 'fill-transparent'
                     }`}
                 />
             </div>
             <p className="text-lg font-bold">{item.title}</p>
-            <p
-                data-testid="price"
-                className="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1">
-                {formatPrice(item.price)}
-            </p>
-            <p>{item.description}</p>
+            {minimised ? null : (
+                <>
+                    <p
+                        data-testid="price"
+                        className="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1">
+                        {formatPrice(item.price)}
+                    </p>
+                    <p>{item.description}</p>
+                </>
+            )}
         </div>
     );
 });

@@ -28,7 +28,7 @@ exports[`FavoritesModal should call onClose if close btn clicked 1`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
       >
         <div
           class="text-center text-2xl font-bold self-center"
@@ -69,7 +69,7 @@ exports[`FavoritesModal should call onClose if close btn clicked 2`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
       >
         <div
           class="text-center text-2xl font-bold self-center"
@@ -110,7 +110,7 @@ exports[`FavoritesModal should render correctly 1`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
       >
         <div
           class="text-center text-2xl font-bold self-center"
@@ -151,7 +151,7 @@ exports[`FavoritesModal should render favorites passed 1`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[40rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
       >
         <div
           class="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl"
@@ -161,7 +161,7 @@ exports[`FavoritesModal should render favorites passed 1`] = `
           >
             <img
               alt="Test"
-              class="md:hover:scale-125 transition-transform duration-500 ease-out"
+              class="md:hover:scale-110 transition-transform duration-500 ease-out"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -171,7 +171,7 @@ exports[`FavoritesModal should render favorites passed 1`] = `
               style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
             />
             <svg-url
-              classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] transition-colors fill-red-500"
+              classname="bg-white p-2 rounded-full absolute top-4 right-4 w-10 duration-500 ease-in-out transition-colors fill-red-500"
               data-testid="favicon"
             />
           </div>
@@ -179,15 +179,6 @@ exports[`FavoritesModal should render favorites passed 1`] = `
             class="text-lg font-bold"
           >
             Test
-          </p>
-          <p
-            class="text-md font-semibold text-right my-4 bg-slate-200 rounded-full inline-block px-4 py-1"
-            data-testid="price"
-          >
-            100 €
-          </p>
-          <p>
-            Test description
           </p>
         </div>
       </div>

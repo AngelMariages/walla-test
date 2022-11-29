@@ -61,10 +61,6 @@ describe('FavoritesModal', () => {
 
         expect(container.querySelector('h2')?.innerHTML).toBe('Favorites');
 
-
-
         expect(getByText(container, 'Test')).toBeTruthy();
-        expect(getByText(container, '100 €')).toBeTruthy();
-        expect(getByText(container, 'Test description')).toBeTruthy();
     });
 });
