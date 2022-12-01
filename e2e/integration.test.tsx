@@ -26,3 +26,27 @@ test('should show the first 5 items more after scrolling', async ({ page }) => {
 
     expect(items.length >= 10).toBeTruthy();
 });
+
+test('when marking a favorite it should show in the favorites modal', async ({ page }) => {
+    await page.goto('/');
+    await page.getByTestId('favbutton').click();
+
+    const favModalText = await page
+        .getByTestId('favorites-modal-list')
+        .allTextContents();
+
+    expect(favModalText).toEqual(['No items found']);
+
+    await page.getByTestId('close-fav-button').click();
+
+    await page.getByTestId('product-0').getByTestId('favicon').click();
+    await page.getByTestId('product-2').getByTestId('favicon').click();
+
+    await page.getByTestId('favbutton').click();
+
+    const product0 = page.getByTestId('favorites-modal-list').getByTestId('product-0');
+    const product2 = page.getByTestId('favorites-modal-list').getByTestId('product-2');
+
+    expect(product0).toBeTruthy();
+    expect(product2).toBeTruthy();
+});

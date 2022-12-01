@@ -28,7 +28,9 @@ const FavoritesModal: React.FC<Props> = ({ visible, onClose, favorites }) => {
                     </button>
                 </div>
 
-                <div className="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)]  overflow-y-auto">
+                <div
+                    data-testid="favorites-modal-list"
+                    className="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)]  overflow-y-auto">
                     {favorites.length === 0 ? (
                         <div className="text-center text-2xl font-bold self-center">
                             No items found
