@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderSearchBar should render correctly 1`] = `
+<div>
+  <form
+    data-testid="search-form"
+  >
+    <div
+      class="ml-4 md:ml-8 flex gap-2 md:gap-4"
+    >
+      <input
+        class="rounded-md border border-gray-300 px-2 py-1"
+        data-testid="search-input"
+        placeholder="Search"
+        type="text"
+      />
+      <button
+        class="ml-2"
+        type="submit"
+      >
+        <svg-url
+          alt="search"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;

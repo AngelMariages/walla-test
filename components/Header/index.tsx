@@ -1,6 +1,6 @@
 import WallapopLogo from 'public/images/logo-wallapop.svg';
 import FavIcon from 'public/icons/fav.svg';
-import SearchBar from 'components/SearchBar';
+import SearchBar from 'components/HeaderSearchBar';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { FiltersContext } from 'context/FiltersContext';

@@ -9,7 +9,7 @@ exports[`FavoritesModal should call onClose if close btn clicked 1`] = `
       class="fixed inset-0 bg-black bg-opacity-50"
     />
     <div
-      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+      class="z-20 bg-white rounded-lg p-4 max-w-[24rem] md:max-w-[30rem]"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -28,7 +28,34 @@ exports[`FavoritesModal should call onClose if close btn clicked 1`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="pt-4 pb-4 border"
+      >
+        <form
+          data-testid="search-form"
+        >
+          <div
+            class="ml-4 md:ml-8 flex gap-2 md:gap-4"
+          >
+            <input
+              class="rounded-md border border-gray-300 px-2 py-1"
+              data-testid="search-input"
+              placeholder="Search"
+              type="text"
+            />
+            <button
+              class="ml-2"
+              type="submit"
+            >
+              <svg-url
+                alt="search"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[20rem] md:min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        data-testid="favorites-modal-list"
       >
         <div
           class="text-center text-2xl font-bold self-center"
@@ -50,7 +77,7 @@ exports[`FavoritesModal should call onClose if close btn clicked 2`] = `
       class="fixed inset-0 bg-black bg-opacity-50"
     />
     <div
-      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+      class="z-20 bg-white rounded-lg p-4 max-w-[24rem] md:max-w-[30rem]"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -69,7 +96,34 @@ exports[`FavoritesModal should call onClose if close btn clicked 2`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="pt-4 pb-4 border"
+      >
+        <form
+          data-testid="search-form"
+        >
+          <div
+            class="ml-4 md:ml-8 flex gap-2 md:gap-4"
+          >
+            <input
+              class="rounded-md border border-gray-300 px-2 py-1"
+              data-testid="search-input"
+              placeholder="Search"
+              type="text"
+            />
+            <button
+              class="ml-2"
+              type="submit"
+            >
+              <svg-url
+                alt="search"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[20rem] md:min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        data-testid="favorites-modal-list"
       >
         <div
           class="text-center text-2xl font-bold self-center"
@@ -91,7 +145,7 @@ exports[`FavoritesModal should render correctly 1`] = `
       class="fixed inset-0 bg-black bg-opacity-50"
     />
     <div
-      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+      class="z-20 bg-white rounded-lg p-4 max-w-[24rem] md:max-w-[30rem]"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -110,7 +164,34 @@ exports[`FavoritesModal should render correctly 1`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="pt-4 pb-4 border"
+      >
+        <form
+          data-testid="search-form"
+        >
+          <div
+            class="ml-4 md:ml-8 flex gap-2 md:gap-4"
+          >
+            <input
+              class="rounded-md border border-gray-300 px-2 py-1"
+              data-testid="search-input"
+              placeholder="Search"
+              type="text"
+            />
+            <button
+              class="ml-2"
+              type="submit"
+            >
+              <svg-url
+                alt="search"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[20rem] md:min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        data-testid="favorites-modal-list"
       >
         <div
           class="text-center text-2xl font-bold self-center"
@@ -132,7 +213,7 @@ exports[`FavoritesModal should render favorites passed 1`] = `
       class="fixed inset-0 bg-black bg-opacity-50"
     />
     <div
-      class="z-20 bg-white rounded-lg p-4 max-w-[30rem]"
+      class="z-20 bg-white rounded-lg p-4 max-w-[24rem] md:max-w-[30rem]"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -151,7 +232,34 @@ exports[`FavoritesModal should render favorites passed 1`] = `
         </button>
       </div>
       <div
-        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        class="pt-4 pb-4 border"
+      >
+        <form
+          data-testid="search-form"
+        >
+          <div
+            class="ml-4 md:ml-8 flex gap-2 md:gap-4"
+          >
+            <input
+              class="rounded-md border border-gray-300 px-2 py-1"
+              data-testid="search-input"
+              placeholder="Search"
+              type="text"
+            />
+            <button
+              class="ml-2"
+              type="submit"
+            >
+              <svg-url
+                alt="search"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="grid sm:grid-cols-1 gap-4 bg-gray-300 min-h-[28rem] min-w-[20rem] md:min-w-[24rem] max-h-[calc(100vh_-_16rem)] overflow-y-auto"
+        data-testid="favorites-modal-list"
       >
         <div
           class="m-5 p-5 border bg-slate-50 rounded-2xl shadow-2xl"

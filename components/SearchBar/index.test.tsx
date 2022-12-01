@@ -1,33 +1,20 @@
-import { fireEvent, act } from '@testing-library/react';
-import { renderWithContext } from '__test__/utils';
+import { act, fireEvent, getByTestId, render } from '@testing-library/react';
 import SearchBar from '.';
 
-const mockRouterPush = jest.fn();
-
-jest.mock('next/router', () => ({
-    useRouter: () => ({
-        push: mockRouterPush,
-    }),
-}));
-
-jest.mock('next/navigation', () => ({
-    usePathname: () => '/search/test',
+jest.mock('lib/debounce', () => ({
+    debounce: (fn: () => void) => fn,
 }));
 
 describe('SearchBar', () => {
     it('should render correctly', () => {
-        const { container } = renderWithContext(<SearchBar />);
+        const { container } = render(<SearchBar setSearch={() => false} />);
         expect(container).toMatchSnapshot();
     });
 
     it('should call onSearch when input changes', async () => {
         const onSearch = jest.fn();
-        const { getByTestId } = renderWithContext(<SearchBar />, {
-            filtersContext: {
-                setSearch: onSearch,
-            },
-        });
-        const input = getByTestId('search-input');
+        const { container } = render(<SearchBar setSearch={onSearch} />);
+        const input = getByTestId(container, 'search-input');
 
         await act(() => {
             fireEvent.change(input, { target: { value: 'test' } });
@@ -37,21 +24,19 @@ describe('SearchBar', () => {
     });
 
     it('should call router.push when form is submitted', async () => {
-        const { getByTestId } = renderWithContext(<SearchBar />);
-        const input = getByTestId('search-input');
-        const form = getByTestId('search-form');
+        const onSubmit = jest.fn();
+        const { container } = render(
+            <SearchBar setSearch={() => false} onSubmit={onSubmit} />
+        );
+        const input = getByTestId(container, 'search-input');
+        const form = getByTestId(container, 'search-form');
 
         await act(() => {
             fireEvent.change(input, { target: { value: 'second-test' } });
 
             fireEvent.submit(form);
         });
-        expect(mockRouterPush).toHaveBeenCalledWith(
-            '/search/second-test',
-            undefined,
-            {
-                shallow: true,
-            }
-        );
+
+        expect(onSubmit).toHaveBeenCalledTimes(1);
     });
 });
