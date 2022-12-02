@@ -45,7 +45,7 @@ The project is divided into these main folders:
   - `useInfiniteScroll`: Hook that returns a ref to be attached to the last element of a list, and trigger a callback whenever the element is in the viewport.
 - `context`: Contains the context in order to have a global state for the Favorites.
 
-## Project decisions
+## Project decisions
 
 - I decided to use Next.js 13, altought I'm not using the new `app` folder because it's still in beta and has some missing features needed for this project, I think it's a very good fit for creating a product listing page. One of it's main features is the SSR, which ensures a very good firs load performance, as the page is rendered on the server side and the client side only hydrates the page while the user can start interacting with it. Using the `next` provided components like `Link` and `Image`, we can create a better user experience, as the user can navigate through the pages without having to reload, and the images are lazy loaded, which improves greatly the user experience.
 
